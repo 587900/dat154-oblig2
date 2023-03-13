@@ -10,52 +10,52 @@ namespace SpaceSim
 
     public class SpaceObject
     {
-        public string Name { get; private set; }
+        public SpaceObjectMetadata Metadata { get; private set; }
         public double SpeedKMseconds { get; private set; }
         public Color Color { get; private set; }
-        public double Radius { get; private set; }
-        public double RotationPeriod { get; private set; }
         public Orbit Orbit { get; private set; }
 
-        private Point cachedPosition;
-        private double cachedPositionTimeSeconds;
+        private (double, double) cachedPosition;
+        private double cachedPositionTimeDays;
 
-        public SpaceObject(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public SpaceObject(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit)
+        public SpaceObject(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit)
         {
-            this.Name = name;
-            this.SpeedKMseconds = speedKMseconds;
-            this.Color = color;
-            this.Radius = radius;
-            this.RotationPeriod = rotationPeriod;
-            this.Orbit = orbit;
+            Metadata = metadata;
+            SpeedKMseconds = speedKMsec;
+            Color = color;
+            Orbit = orbit;
 
-            cachedPosition = new Point(0, 0);
-            cachedPositionTimeSeconds = -1;
+            cachedPosition = (0, 0);
+            cachedPositionTimeDays = -1;
         }
         public virtual void Draw()
         {
-            Console.WriteLine(Name + " " + GetPosition(0));
+            Console.WriteLine(Metadata.Name + " " + GetPosition(0));
         }
 
-        public Point GetPosition(double timeSeconds)
+        public void DrawInfo(double timeDays)
+        {
+            Console.WriteLine(Metadata);
+            Console.WriteLine(string.Format("Position after days: {0} = {1}", timeDays, GetPosition(timeDays)));
+        }
+
+        public (double, double) GetPosition(double timeDays)
         {
             // turn O(n^2) into O(n) when finding all
-            if (timeSeconds != cachedPositionTimeSeconds) UpdateCachedPosition(timeSeconds);
-            return new Point(cachedPosition.X, cachedPosition.Y);
+            if (timeDays != cachedPositionTimeDays) UpdateCachedPosition(timeDays);
+            return (cachedPosition.Item1, cachedPosition.Item2);
         }
 
-        private void UpdateCachedPosition(double timeSeconds)
+        private void UpdateCachedPosition(double timeDays)
         {
-            cachedPosition = (Orbit == null ? new Point(0, 0) : Orbit.GetPosition(this, timeSeconds));
-            cachedPositionTimeSeconds = timeSeconds;
+            cachedPosition = (Orbit == null ? (0, 0) : Orbit.GetPosition(this, timeDays));
+            cachedPositionTimeDays = timeDays;
         }
     }
 
     public class Star : SpaceObject
     {
-        public Star(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public Star(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit) { }
+        public Star(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit) { }
         public override void Draw()
         {
             Console.Write("Star         : ");
@@ -65,8 +65,7 @@ namespace SpaceSim
 
     public class Planet : SpaceObject
     {
-        public Planet(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public Planet(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit) { }
+        public Planet(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit) { }
         public override void Draw()
         {
             Console.Write("Planet       : ");
@@ -76,8 +75,7 @@ namespace SpaceSim
 
     public class DwarfPlanet : Planet
     {
-        public DwarfPlanet(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public DwarfPlanet(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit) { }
+        public DwarfPlanet(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit) { }
         public override void Draw()
         {
             Console.Write("Dwarf ");
@@ -87,8 +85,7 @@ namespace SpaceSim
 
     public class Moon : SpaceObject
     {
-        public Moon(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public Moon(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit) { }
+        public Moon(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit) { }
         public override void Draw()
         {
             Console.Write("Moon         : ");
@@ -98,8 +95,7 @@ namespace SpaceSim
 
     public class Comet : SpaceObject
     {
-        public Comet(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public Comet(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit) { }
+        public Comet(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit) { }
         public override void Draw()
         {
             Console.Write("Comet        : ");
@@ -109,8 +105,7 @@ namespace SpaceSim
 
     public class Meteor : SpaceObject
     {
-        public Meteor(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public Meteor(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit) { }
+        public Meteor(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit) { }
         public override void Draw()
         {
             Console.Write("Meteor       : ");
@@ -120,8 +115,7 @@ namespace SpaceSim
 
     public class Asteroid : SpaceObject
     {
-        public Asteroid(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public Asteroid(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit) { }
+        public Asteroid(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit) { }
         public override void Draw()
         {
             Console.Write("Asteroid     : ");
@@ -132,8 +126,7 @@ namespace SpaceSim
     public class AsteroidBelt : SpaceObject
     {
         private List<Asteroid> list;
-        public AsteroidBelt(string name, double speedKMseconds, Color color, double radius, double rotationPeriod) : this(name, speedKMseconds, color, radius, rotationPeriod, null) { }
-        public AsteroidBelt(string name, double speedKMseconds, Color color, double radius, double rotationPeriod, Orbit orbit) : base(name, speedKMseconds, color, radius, rotationPeriod, orbit)
+        public AsteroidBelt(SpaceObjectMetadata metadata, double speedKMsec, Color color, Orbit orbit) : base(metadata, speedKMsec, color, orbit)
         {
             list = new List<Asteroid>();
         }

@@ -1,0 +1,91 @@
+Name,#,Orbits,Distance (000 km),O_Period (days),Incl,Eccen,Discoverer,Date,A.K.A.,Diameter (000 km),Color (hex),R_Period (days),Type
+Sun,-,-,-,-,-,-,-,-,Sol,1392,#FFAA11,,Star
+Mercury,I,Sun,57910,87.97,7,0.21,-,-,,4.879,#AAAADD,,Planet
+Venus,II,Sun,108200,224.7,14305,0.01,-,-,,12.104,#DDDD44,,Planet
+Earth,III,Sun,149600,365.26,0,0.02,-,-,,12.756,#0000FF,1,Planet
+Mars,IV,Sun,227940,686.98,31048,0.09,-,-,,13.61,#DD4400,,Planet
+Jupiter,V,Sun,778330,4332.71,11324,0.05,-,-,,142.984,#AAAA11,,Planet
+Saturn,VI,Sun,1429400,10759.5,17930,0.06,-,-,,120.536,#BBBB55,,Planet
+Uranus,VII,Sun,2870990,30685,0.77,0.05,Herschel,1781,,51.118,#5555FF,,Planet
+Neptune,VIII,Sun,4504300,60190,28126,0.01,Adams,1846,,48.528,#0000FF,,Planet
+Pluto,IX,Sun,5913520,90550,17.15,0.25,Tombaugh,1930,,2.368,#AAAA33,,Planet
+Moon,I,Earth,384,27.32,41760,0.05,-,-,Luna,,,,Moon
+Phobos,I,Mars,9,0.32,1,0.02,Hall,1877,,,,,Moon
+Deimos,II,Mars,23,46023,45139,0,Hall,1877,,,,,Moon
+Metis,XVI,Jupiter,128,0.29,0,0,Synnott,1979,1979 J 3,,,,Moon
+Adrastea,XV,Jupiter,129,0.3,0,0,Jewitt,1979,1979 J1,,,,Moon
+Amalthea,V,Jupiter,181,0.5,0.4,0,Barnard,1892,,,,,Moon
+Thebe,XIV,Jupiter,222,0.67,0.8,0.02,Synnott,1979,1979 J2,,,,Moon
+Io,I,Jupiter,422,28126,0.04,0,Galileo,1610,,,,,Moon
+Europa,II,Jupiter,671,20149,0.47,0.01,Galileo,1610,,,,,Moon
+Ganymede,III,Jupiter,1070,42186,0.19,0,Galileo,1610,,,,,Moon
+Callisto,IV,Jupiter,1883,16.69,0.28,0.01,Galileo,1610,,,,,Moon
+Themisto,XVIII,Jupiter,7507,,,,Sheppard,2000,S/1975 J 1 & S/2000 J1,,,,Moon
+Leda,XIII,Jupiter,11094,238.72,27,0.15,Kowal,1974,,,,,Moon
+Himalia,VI,Jupiter,11480,250.57,28,0.16,Perrine,1904,,,,,Moon
+Lysithea,X,Jupiter,11720,259.22,29,0.11,Nicholson,1938,,,,,Moon
+Elara,VII,Jupiter,11737,259.65,28,0.21,Perrine,1905,,,,,Moon
+Ananke,XII,Jupiter,21200,-631,147,0.17,Nicholson,1951,,,,,Moon
+Carme,XI,Jupiter,22600,-692,163,0.21,Nicholson,1938,,,,,Moon
+Pasiphae,VIII,Jupiter,23500,-735,147,0.38,Melotte,1908,,,,,Moon
+Sinope,IX,Jupiter,23700,-758,153,0.28,Nicholson,1914,,,,,Moon
+Iocaste,XXIV,Jupiter,20216,,,,Sheppard,2000,S/2000 J 3,,,,Moon
+Harpalyke,XXII,Jupiter,21132,,,,Sheppard,2000,S/2000 J 5,,,,Moon
+Praxidike,XXVII,Jupiter,20964,,,,Sheppard,2000,S/2000 J 7,,,,Moon
+Taygete,XX,Jupiter,23312,,,,Sheppard,2000,S/2000 J 9,,,,Moon
+Chaldene,XXI,Jupiter,23387,,,,Sheppard,2000,S/2000 J 10,,,,Moon
+Kalyke,XXIII,Jupiter,23745,,,,Sheppard,2000,S/2000 J 2,,,,Moon
+Callirrhoe,XVII,Jupiter,24100,,,,Sheppard,2000,S/1999 J 1,,,,Moon
+Megaclite,XIX,Jupiter,23911,,,,Sheppard,2000,S/2000 J 8,,,,Moon
+Isonoe,XXVI,Jupiter,23078,,,,Sheppard,2000,S/2000 J 6,,,,Moon
+Erinome,XXV,Jupiter,23168,,,,Sheppard,2000,S/2000 J 4,,,,Moon
+Pan,XVIII,Saturn,134,0.58,0,0,Showalter,1990,1981 S 13,,,,Moon
+Atlas,XV,Saturn,138,0.6,0,0,Terrile,1980,1980 S 28,,,,Moon
+Prometheus,XVI,Saturn,139,0.61,0,0,Collins,1980,1980 S 27,,,,Moon
+Pandora,XVII,Saturn,142,0.63,0,0,Collins,1980,1980 S 26,,,,Moon
+Epimetheus,XI,Saturn,151,0.69,0.34,0.01,Walker,1980,1980 S 3,,,,Moon
+Janus,X,Saturn,151,0.69,0.14,0.01,Dollfus,1966,1980 S 1,,,,Moon
+Mimas,I,Saturn,186,0.94,19360,0.02,Herschel,1789,,,,,Moon
+Enceladus,II,Saturn,238,13516,0.02,0,Herschel,1789,,,,,Moon
+Tethys,III,Saturn,295,32509,45170,0,Cassini,1684,,,,,Moon
+Telesto,XIII,Saturn,295,32509,0,0,Smith,1980,1980 S 13,,,,Moon
+Calypso,XIV,Saturn,295,32509,0,0,Pascu,1980,1980 S 25,,,,Moon
+Dione,IV,Saturn,377,27061,0.02,0,Cassini,1684,,,,,Moon
+Helene,XII,Saturn,377,27061,0.2,0.01,Laques,1980,1980 S 6 & Dione B,,,,Moon
+Rhea,V,Saturn,527,19085,0.35,0,Cassini,1672,,,,,Moon
+Titan,VI,Saturn,1222,15.95,0.33,0.03,Huygens,1655,,,,,Moon
+Hyperion,VII,Saturn,1481,21.28,0.43,0.1,Bond,1848,,,,,Moon
+Iapetus,VIII,Saturn,3561,79.33,14.72,0.03,Cassini,1671,,,,,Moon
+Phoebe,IX,Saturn,12952,-550.48,175.3,0.16,Pickering,1898,,,,,Moon
+Cordelia,VI,Uranus,50,0.34,0.14,0,Voyager 2,1986,1986 U 7,,,,Moon
+Ophelia,VII,Uranus,54,0.38,0.09,0,Voyager 2,1986,1987 U 8,,,,Moon
+Bianca,VIII,Uranus,59,0.43,0.16,0,Voyager 2,1986,1988 U 9,,,,Moon
+Cressida,IX,Uranus,62,0.46,0.04,0,Voyager 2,1986,1986 U 3,,,,Moon
+Desdemona,X,Uranus,63,0.47,0.16,0,Voyager 2,1986,1986 U 6,,,,Moon
+Juliet,XI,Uranus,64,0.49,0.06,0,Voyager 2,1986,1986 U 2,,,,Moon
+Portia,XII,Uranus,66,0.51,0.09,0,Voyager 2,1986,1986 U 1,,,,Moon
+Rosalind,XIII,Uranus,70,0.56,0.28,0,Voyager 2,1986,1986 U 4,,,,Moon
+Belinda,XIV,Uranus,75,0.62,0.03,0,Voyager 2,1986,1986 U 5,,,,Moon
+Puck,XV,Uranus,86,0.76,0.31,0,Voyager 2,1985,1985 U 1,,,,Moon
+Miranda,V,Uranus,130,14977,44652,0,Kuiper,1948,,,,,Moon
+Ariel,I,Uranus,191,19025,0,0,Lassell,1851,,,,,Moon
+Umbriel,II,Uranus,266,41730,0,0,Lassell,1851,,,,,Moon
+Titania,III,Uranus,436,26146,0,0,Herschel,1787,,,,,Moon
+Oberon,IV,Uranus,583,13.46,0,0,Herschel,1787,,,,,Moon
+Caliban,XVI,Uranus,7169,-580,140,0.08,Gladman,1997,1997U 1,,,,Moon
+Stephano,XX,Uranus,7948,-674,143,0.24,Gladman,1999,1999 U 2,,,,Moon
+Sycorax,XVII,Uranus,12213,-1289,153,0.51,Nicholson,1997,1997 U 2,,,,Moon
+Prospero,XVIII,Uranus,16568,-2019,152,0.44,Holman,1999,1999 U 3,,,,Moon
+Setebos,XIX,Uranus,17681,-2239,158,0.57,Kavelaars,1999,1999 U 1,,,,Moon
+Trinculo,XXI,Uranus,,,,,Gladman,2001,2001 U 1,,,,Moon
+Naiad,III,Neptune,48,0.29,0,0,Voyager 2,1989,1989 N 6,,,,Moon
+Thalassa,IV,Neptune,50,0.31,45050,0,Voyager 2,1989,1989 N 5,,,,Moon
+Despina,V,Neptune,53,0.33,0,0,Voyager 2,1989,1989 N 3,,,,Moon
+Galatea,VI,Neptune,62,0.43,0,0,Voyager 2,1989,1989 N 4,,,,Moon
+Larissa,VII,Neptune,74,0.55,0,0,Reitsema,1989,1989 N 2,,,,Moon
+Proteus,VIII,Neptune,118,45261,0,0,Voyager 2,2,1989 N 1,,,,Moon
+Triton,I,Neptune,355,-5.88,157,0,Lassell,1846,,,,,Moon
+Nereid,II,Neptune,5513,360.13,29,0.75,Kuiper,1949,,,,,Moon
+Charon,I,Pluto,20,14397,98.8,0,Christy,1978,1978 P 1,,,,Moon
+Nix,II,Pluto,49,24.86,0.2,0,Stern,2005,2005 P 1,,,,Moon
+Hydra,III,Pluto,65,38.21,0.21,0,Stern,2005,2005 P 2,,,,Moon

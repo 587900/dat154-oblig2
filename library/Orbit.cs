@@ -11,36 +11,42 @@ namespace SpaceSim
     public abstract class Orbit
     {
         public SpaceObject Target { get; private set; }
-        public double OrbitLength { get; protected set; }
+        public double OrbitLengthKM { get; protected set; }
         public Orbit(SpaceObject target)
         {
-            this.Target = target;
+            Target = target;
         }
-        public Point GetPosition(SpaceObject orbiter, double timeSeconds)
+        public (double, double) GetPosition(SpaceObject orbiter, double timeDays)
         {
-            Point relative = GetRelativePosition(orbiter, timeSeconds);
-            Point host = Target.GetPosition(timeSeconds);
-            return new Point(relative.X + host.X, relative.Y + host.Y);
+            (double, double) relative = GetRelativePosition(orbiter, timeDays);
+            (double, double) host = Target.GetPosition(timeDays);
+            return (relative.Item1 + host.Item1, relative.Item2 + host.Item2);
         }
-        public abstract Point GetRelativePosition(SpaceObject orbiter, double timeSeconds);
+        public abstract (double, double) GetRelativePosition(SpaceObject orbiter, double timeDays);
+        public abstract double CalculateKMSecRequiredForPeriod(double periodDays);
     }
 
     //public class CircularOrbit<T> : Orbit<T> where T : SpaceObject
     public class CircularOrbit : Orbit
     {
-        public double Radius { get; private set; }
+        public double RadiusKM { get; private set; }
 
-        public CircularOrbit(SpaceObject target, double radius) : base(target)
+        public CircularOrbit(SpaceObject target, double radiusKM) : base(target)
         {
-            this.Radius = radius;
-            this.OrbitLength = 2 * radius * Math.PI;
+            RadiusKM = radiusKM;
+            OrbitLengthKM = 2 * radiusKM / 1000 * Math.PI;
         }
-        public override Point GetRelativePosition(SpaceObject orbiter, double timeSeconds)
+        public override (double, double) GetRelativePosition(SpaceObject orbiter, double timeDays)
         {
-            double distance = orbiter.SpeedKMseconds * timeSeconds;
-            double rads = 2 * Math.PI * (distance % OrbitLength) / OrbitLength;
+            double distanceKM = orbiter.SpeedKMseconds * timeDays * 86400;
+            double rads = 2 * Math.PI * (distanceKM % OrbitLengthKM) / OrbitLengthKM;
 
-            return new Point((int)(Radius * Math.Cos(rads)), (int)(Radius * Math.Sin(rads)));
+            return (RadiusKM * Math.Cos(rads), RadiusKM * Math.Sin(rads));
+        }
+
+        public override double CalculateKMSecRequiredForPeriod(double periodDays)
+        {
+            return OrbitLengthKM / periodDays / 86400;
         }
     }
 }
