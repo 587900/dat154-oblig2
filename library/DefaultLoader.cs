@@ -54,14 +54,15 @@ namespace library
                 }
 
                 double speedKMSec = (orbit == null ? 0 : orbit.CalculateKMSecRequiredForPeriod(periodDays));
+                Color color = ColorTranslator.FromHtml(colorHex);
 
                 SpaceObject obj;
                 string type = fields[13];
                 switch (type)
                 {
-                    case "Star": obj = new Star(metadata, speedKMSec, Color.FromName(colorHex), orbit); break;
-                    case "Planet": obj = new Planet(metadata, speedKMSec, Color.FromName(colorHex), orbit); break;
-                    case "Moon": obj = new Moon(metadata, speedKMSec, Color.FromName(colorHex), orbit); break;
+                    case "Star": obj = new Star(metadata, speedKMSec, color, orbit); break;
+                    case "Planet": obj = new Planet(metadata, speedKMSec, color, orbit); break;
+                    case "Moon": obj = new Moon(metadata, speedKMSec, color, orbit); break;
                     default: throw new ArgumentException("internal csv must only detail 'star', 'planet' and 'moon', but got : " + type);
                 }
 
