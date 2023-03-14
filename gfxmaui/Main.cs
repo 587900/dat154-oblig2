@@ -29,12 +29,12 @@ namespace GfxMaui
             renderer.SetTarget(draw);
 
             // NOTE: Due to library architecture, the positions are never saved and thus nothing can register as event listeners for the 'tick' method
-            // Instead, see the InputManager class. There are examples of how we used events in this application.
+            // The only listener could be the renderer, but having to send in 'Main' and then have 'renderer' attaching to it is messy, so that is avoided here.
+            // Instead, see the InputManager class. There are examples of how events are used in this application.
             IDispatcherTimer timer = Application.Current.Dispatcher.CreateTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10);
             timer.Tick += Timer_Tick;
             timer.Start();
-
         }
 
         private static void Timer_Tick(object sender, EventArgs e)

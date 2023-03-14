@@ -12,6 +12,8 @@ namespace GfxMaui
         private SpaceObject cameraFollow = null;
         private SpaceObject cameraFollowLast = null;
 
+        private bool lerping = false;
+
         private double timeDaysPerTick = 1;
         private double timeDays = 0;
         
@@ -182,16 +184,38 @@ namespace GfxMaui
         {
             cameraFollow = target;
             cameraFollowLast = target;
+            lerping = true;
         }
 
         public void Tick()
         {
             timeDays += timeDaysPerTick;
+
+            // The camera code should really be abstracted into it's own class, but oh well. This is just for style points anway :)
             if (cameraFollow != null)
             {
                 (double, double) pos = cameraFollow.GetScaledPosition(timeDays, ScaleFunction);
-                camera.Item1 = pos.Item1;
-                camera.Item2 = pos.Item2;
+                double dx = camera.Item1 - pos.Item1, dy = camera.Item2 - pos.Item2;
+                double distanceSquared = dx*dx + dy*dy;
+                if (distanceSquared < 25) lerping = false;
+
+                if (lerping)
+                {
+                    double lerp;
+                    if (timeDaysPerTick * zoom < 1f) lerp = 0.16;
+                    else if (timeDaysPerTick * zoom < 2f) lerp = 0.3;
+                    else if (timeDaysPerTick * zoom < 3f) lerp = 0.6;
+                    else if (timeDaysPerTick * zoom < 3.5f) lerp = 0.9;
+                    else lerp = 1.0;
+
+                    camera.Item1 = Util.Lerp(camera.Item1, pos.Item1, lerp);
+                    camera.Item2 = Util.Lerp(camera.Item2, pos.Item2, lerp);
+                }
+                else
+                {
+                    camera.Item1 = pos.Item1;
+                    camera.Item2 = pos.Item2;
+                }
             }
         }
 
