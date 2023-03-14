@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 /* Loads some SpaceObjects from data gotten from https://nineplanets.org/solar-system-data/ */
 
-namespace library
+namespace SpaceSim
 {
     public static class DefaultLoader
     {
@@ -19,7 +19,7 @@ namespace library
             List<SpaceObject> list = new List<SpaceObject>();
             Dictionary<string, SpaceObject> nameToSpaceObject = new Dictionary<string, SpaceObject>();
 
-            string[] csv = Properties.Resources.Nineplanets.Split('\n');
+            string[] csv = Library.Properties.Resources.Nineplanets.Split('\n');
 
             for (int i = 1; i < csv.Length - 1; ++i)
             {
@@ -36,7 +36,6 @@ namespace library
                     Discoverer = fields[7],
                     DiscoveryYear = ParseInt(fields[8]),
                     AKA = fields[9],
-                    DiameterKM = ParseDouble(fields[10]) * 1000,
                     Type = fields[13],
                     RotationPeriodDays = ParseDouble(fields[12])
             };
@@ -45,6 +44,8 @@ namespace library
                 double orbitRadiusKM = ParseDouble(fields[3]) * 1000;
                 double periodDays = ParseDouble(fields[4]);
                 string colorHex = fields[11];
+                double diameterKM = ParseDouble(fields[10]) * 1000;
+                if (diameterKM == 0) diameterKM = 3476; // Nineplanets.org's overview diagram does not provide diameter, assume all diameters are that of our Moon
 
                 SpaceObject orbitObject;
                 Orbit orbit = null;
@@ -54,15 +55,14 @@ namespace library
                 }
 
                 double speedKMSec = (orbit == null ? 0 : orbit.CalculateKMSecRequiredForPeriod(periodDays));
-                Color color = ColorTranslator.FromHtml(colorHex);
 
                 SpaceObject obj;
                 string type = fields[13];
                 switch (type)
                 {
-                    case "Star": obj = new Star(metadata, speedKMSec, color, orbit); break;
-                    case "Planet": obj = new Planet(metadata, speedKMSec, color, orbit); break;
-                    case "Moon": obj = new Moon(metadata, speedKMSec, color, orbit); break;
+                    case "Star": obj = new Star(metadata, speedKMSec, diameterKM, colorHex, orbit); break;
+                    case "Planet": obj = new Planet(metadata, speedKMSec, diameterKM, colorHex, orbit); break;
+                    case "Moon": obj = new Moon(metadata, speedKMSec, diameterKM, colorHex, orbit); break;
                     default: throw new ArgumentException("internal csv must only detail 'star', 'planet' and 'moon', but got : " + type);
                 }
 

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console", "console\console.csproj", "{88D65853-138D-4A45-905C-2EC78FA0ED12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "console\Console.csproj", "{88D65853-138D-4A45-905C-2EC78FA0ED12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library", "library\library.csproj", "{806F2100-E8E0-4F6B-8413-1CF9AD14F429}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "library\Library.csproj", "{806F2100-E8E0-4F6B-8413-1CF9AD14F429}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GfxMaui", "gfxmaui\GfxMaui.csproj", "{F23E7E86-CDAD-4B8B-B134-DF78C0CB48C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{806F2100-E8E0-4F6B-8413-1CF9AD14F429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{806F2100-E8E0-4F6B-8413-1CF9AD14F429}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{806F2100-E8E0-4F6B-8413-1CF9AD14F429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23E7E86-CDAD-4B8B-B134-DF78C0CB48C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F23E7E86-CDAD-4B8B-B134-DF78C0CB48C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F23E7E86-CDAD-4B8B-B134-DF78C0CB48C8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F23E7E86-CDAD-4B8B-B134-DF78C0CB48C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F23E7E86-CDAD-4B8B-B134-DF78C0CB48C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23E7E86-CDAD-4B8B-B134-DF78C0CB48C8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

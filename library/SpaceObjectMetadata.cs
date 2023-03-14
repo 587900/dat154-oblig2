@@ -16,7 +16,6 @@ namespace SpaceSim
         public string Discoverer;
         public int DiscoveryYear;
         public string AKA;
-        public double DiameterKM;
         public string Type;
         public double RotationPeriodDays; // only here because we don't draw textures
 
@@ -27,7 +26,7 @@ namespace SpaceSim
 
         public override string ToString()
         {
-            return String.Format("{0}, {1} : {{ No: {2}, Year: {3}, Diameter Kilometers: {4}, Discoverer: {5} }}", Name, Type, Number, DiscoveryYear, DiameterKM, Discoverer);
+            return String.Format("{0}, {1} : {{ No: {2}, Year: {3}, Discoverer: {4} }}", Name, Type, Number, DiscoveryYear, Discoverer);
         }
     }
 }

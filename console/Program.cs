@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using library;
+using Library;
 using SpaceSim;
 
 class Astronomy
 {
     public static void Main()
     {
+
         List<SpaceObject> solarSystem = DefaultLoader.LoadDefaultSpaceObjects();
 
         SpaceObject? obj = null;

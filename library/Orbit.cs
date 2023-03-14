@@ -23,6 +23,14 @@ namespace SpaceSim
             return (relative.Item1 + host.Item1, relative.Item2 + host.Item2);
         }
         public abstract (double, double) GetRelativePosition(SpaceObject orbiter, double timeDays);
+        public (double, double) GetScaledPosition(SpaceObject orbiter, double timeDays, Func<double, double> scaleFunction)
+        {
+            (double, double) relative = GetScaledRelativePosition(orbiter, timeDays, scaleFunction);
+            (double, double) host = Target.GetScaledPosition(timeDays, scaleFunction);
+            return (relative.Item1 + host.Item1, relative.Item2 + host.Item2);
+        }
+        public abstract (double, double) GetScaledRelativePosition(SpaceObject orbiter, double timeDays, Func<double, double> scaleFunction);
+        public abstract double GetDistanceToHost(SpaceObject orbiter, double timeDays);
         public abstract double CalculateKMSecRequiredForPeriod(double periodDays);
     }
 
@@ -42,6 +50,21 @@ namespace SpaceSim
             double rads = 2 * Math.PI * (distanceKM % OrbitLengthKM) / OrbitLengthKM;
 
             return (RadiusKM * Math.Cos(rads), RadiusKM * Math.Sin(rads));
+        }
+
+        public override (double, double) GetScaledRelativePosition(SpaceObject orbiter, double timeDays, Func<double, double> scaleFunction)
+        {
+            double distanceKM = orbiter.SpeedKMseconds * timeDays * 86400;
+            double rads = 2 * Math.PI * (distanceKM % OrbitLengthKM) / OrbitLengthKM;
+
+            double scaledRadiusKM = scaleFunction(RadiusKM);
+
+            return (scaledRadiusKM * Math.Cos(rads), scaledRadiusKM * Math.Sin(rads));
+        }
+
+        public override double GetDistanceToHost(SpaceObject orbiter, double timeDays)
+        {
+            return RadiusKM;
         }
 
         public override double CalculateKMSecRequiredForPeriod(double periodDays)

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace library.Properties {
+namespace Library.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace library.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("library.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Library.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,16 +61,14 @@ namespace library.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name,#,Orbits,Distance (000 km),O_Period (days),Incl,Eccen,Discoverer,Date,A.K.A.
-        ///Sun,-,-,-,-,-,-,-,-,Sol
-        ///Mercury,I,Sun,57910.00,87.97,7.00,0.21,-,-,
-        ///Venus,II,Sun,108200.00,224.7,14305.00,0.01,-,-,
-        ///Earth,III,Sun,149600.00,365.26,0.00,0.02,-,-,
-        ///Mars,IV,Sun,227940.00,686.98,31048.00,0.09,-,-,
-        ///Jupiter,V,Sun,778330.00,4332.71,11324.00,0.05,-,-,
-        ///Saturn,VI,Sun,1429400.00,10759.5,17930.00,0.06,-,-,
-        ///Uranus,VII,Sun,2870990.00,30685.00,0.77,0.05,Herschel,1781.00,
-        ///Neptune,VIII,Sun,4504300.00,60190.00,28126.00,0.01,Ada [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Name,#,Orbits,Distance (000 km),O_Period (days),Incl,Eccen,Discoverer,Date,A.K.A.,Diameter (000 km),Color (hex),R_Period (days),Type
+        ///Sun,-,-,-,-,-,-,-,-,Sol,1392,#FFAA11,,Star
+        ///Mercury,I,Sun,57910,87.97,7,0.21,-,-,,4.879,#AAAADD,,Planet
+        ///Venus,II,Sun,108200,224.7,14305,0.01,-,-,,12.104,#DDDD44,,Planet
+        ///Earth,III,Sun,149600,365.26,0,0.02,-,-,,12.756,#0000FF,1,Planet
+        ///Mars,IV,Sun,227940,686.98,31048,0.09,-,-,,13.61,#DD4400,,Planet
+        ///Jupiter,V,Sun,778330,4332.71,11324,0.05,-,-,,142.984,#AAAA11,,Planet
+        ///Saturn,VI,Sun, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Nineplanets {
             get {
